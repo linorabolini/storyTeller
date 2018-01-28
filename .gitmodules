@@ -1,0 +1,3 @@
+[submodule "app/build"]
+	path = app/build
+	url = https://github.com/collabStory/collabStory.github.io

@@ -1,0 +1,13 @@
+{
+    "prettier.tabWidth": 4,
+    "editor.formatOnSave": true,
+    "workbench.statusBar.visible": false,
+    "window.zoomLevel": 0,
+    "editor.fontSize": 12,
+    "workbench.colorTheme": "Monokai",
+    "extensions.ignoreRecommendations": false,
+    "workbench.activityBar.visible": true,
+    "editor.minimap.enabled": false,
+    "files.trimTrailingWhitespace": true,
+    "explorer.confirmDelete": false
+}
