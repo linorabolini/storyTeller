@@ -8,8 +8,7 @@ const currentStory = 1;
 class Story extends React.Component {
     componentWillMount() {
         this.setState({
-            data: {},
-            paragraphs: []
+            data: {}
         });
 
         this.handleChange = this.handleChange.bind(this);
@@ -41,9 +40,16 @@ class Story extends React.Component {
 
         this.setState({ value: "" });
     }
+
+    removeParagraph(id) {
+        firebase
+            .database()
+            .ref("stories/" + currentStory + "/paragraphs/" + id)
+            .remove();
+    }
     render() {
         const { profile } = this.props;
-        const data = this.state.data;
+        const data = this.state.data || {};
         const isAdmin = window.location.search.indexOf("admin") > 0;
         const paragraphs = Object.keys(data.paragraphs || {});
         const lastParagraph = [...paragraphs].pop();
@@ -64,24 +70,29 @@ class Story extends React.Component {
                                     <img src={userProfile.picture} alt="..." />
                                 </div>
                                 <span>{userProfile.name}</span>
+                            </div>
+                            <div className="col-xs-8">
+                                <p className="paragraph">{text}</p>
+                            </div>
+                            <div className="col-xs-2">
                                 {isAdmin && (
-                                    <p>
+                                    <p style={{ paddingTop: "3px" }}>
                                         <div
                                             className="btn-group btn-group-xs"
                                             role="group"
                                         >
                                             <button
                                                 type="button"
-                                                className="btn btn-default"
+                                                className="btn btn-warning"
+                                                onClick={() =>
+                                                    this.removeParagraph(p)
+                                                }
                                             >
                                                 <Glyphicon glyph="trash" />
                                             </button>
                                         </div>
                                     </p>
                                 )}
-                            </div>
-                            <div className="col-xs-8">
-                                <p className="paragraph">{text}</p>
                             </div>
                         </div>
                     );
@@ -103,7 +114,11 @@ class Story extends React.Component {
                                 />
                                 {this.state.value && (
                                     <div className="text-align-right">
-                                        <input type="submit" value="Submit" />
+                                        <input
+                                            className="btn btn-success"
+                                            type="submit"
+                                            value="Submit"
+                                        />
                                     </div>
                                 )}
                             </form>
