@@ -97,6 +97,9 @@ class Story extends React.Component {
                         </div>
                     );
                 })}
+                <br />
+                <br />
+                <br />
                 <div className="row">
                     <div className="col-xs-2">
                         <div className="thumbnail">
