@@ -24,6 +24,11 @@ export const makeMainRoutes = () => {
                     render={props => <App auth={auth} {...props} />}
                 />
                 <Route
+                    path="/"
+                    exact={true}
+                    render={props => <Redirect to="/home" />}
+                />
+                <Route
                     path="/home"
                     render={props => <Home auth={auth} {...props} />}
                 />

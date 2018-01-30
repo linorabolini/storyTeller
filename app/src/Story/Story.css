@@ -1,18 +1,6 @@
-.story-textarea {
-    width: 100%;
-    min-height: 25vh;
-    display: block;
-    border: 1px solid grey;
-    border-radius: 3px;
-    margin-bottom: 7px;
-    padding: 1em;
-}
-
 .Story {
     background: #f7f7f7;
     padding: 5vw;
-    border-radius: 3px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .Story .thumbnail {
@@ -22,6 +10,10 @@
     display: inline-block;
 }
 
+.paragraph p {
+    margin: 0;
+}
+
 .story-textarea,
 .Story .paragraph {
     outline: none;
@@ -29,17 +21,62 @@
     background: rgba(255, 255, 255, 0.7);
     font-family: serif;
     font-size: 1.4em;
-    border: 1px solid rgba(128, 128, 128, 0.1);
     border-radius: 3px;
     line-height: 1.6em;
-    font-family: "Slabo 27px", serif;
+    font-family: "IM Fell English", serif;
+    resize: none;
+    margin: 10px 0;
+    background-color: #f8f5de;
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 210, 0, 0.4),
+        rgba(200, 160, 0, 0.1) 11%,
+        rgba(0, 0, 0, 0) 35%,
+        rgba(200, 160, 0, 0.1) 65%
+    );
+    box-shadow: inset 0 0 75px rgba(255, 210, 0, 0.3),
+        inset 0 0 20px rgba(255, 210, 0, 0.4),
+        inset 0 0 30px rgba(220, 120, 0, 0.8);
+    padding: 3em;
 }
-
+.story-textarea {
+    width: 100%;
+    min-height: 25vh;
+    display: block;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 7px;
+    padding: 1em;
+}
+/* .Story-paragraphs .row:first-child .paragraph {
+    padding-top: 3em;
+    margin-top: -3em;
+} */
 .Story .paragraph::first-letter {
-    font-size: 1.5em;
+    font-size: 4em;
     text-transform: uppercase;
-    width: 50px;
-    height: 50px;
+    /* width: 50px;
+    height: 50px; */
     box-sizing: border-box;
     float: left;
+    position: relative;
+    float: left;
+    line-height: 60px;
+    padding-right: 12px;
+    position: relative;
+    top: 8px;
+}
+
+.Story-paragraphs {
+    margin-bottom: 20px;
+}
+
+.not-last-user .Story-paragraphs .paragraph {
+    opacity: 0.9;
+}
+
+.Story .profile .name {
+    font-family: "Pirata One", serif;
+    text-transform: capitalize;
+    font-size: 20px;
 }
